@@ -65,6 +65,8 @@ export class AssesmentScreenComponent implements OnInit {
   Rarr:any=[];
   statuss:any="closed";
   p: any = 0;
+  details : any ;
+  emptyVar : any ;
   dialogRef: MatDialogRef <any> ;
 
   constructor(
@@ -80,11 +82,12 @@ export class AssesmentScreenComponent implements OnInit {
   ngOnInit(): void {
     this.getCandidates();
     this.filterCandidate(this.arr)
+    this.dfs.showFiltered = false;
   }
   
 
    getCandidates(){
-    debugger
+  
     this.http.post<any>('http://20.192.1.163:3000/cardsFilterManager',{}
     ,{headers:this.headers}).subscribe(
       response=>{
@@ -117,8 +120,23 @@ export class AssesmentScreenComponent implements OnInit {
 
 
   sendData(data:any){
+  
+    //this.dfs.Intermediate(data);
+    this.dfs.Intermediate2(this.emptyVar);
+  
+  }
+
+  sendData2( email : any , experience : any , name:any , phone : any){
    
-    this.dfs.Intermediate(data);
+    this.details = { name : name , phone : phone , email : email , experience : experience};
+    this.dfs.Intermediate2(this.details);
+    
+  }
+
+  newCandidate () : void {
+    
+    this.dfs.newProfile();
+  
   }
 
   delete(){
@@ -150,7 +168,7 @@ export class AssesmentScreenComponent implements OnInit {
   searchFilter(status:any,name:any,emailId:any,startDate:any,endDate:any){
     console.log(this.start_date)
     console.log(startDate)
-    debugger
+  
     this.http.post<any>('http://20.192.1.163:3000/cardsFilterManager',
     {
       status,name,emailId,startDate,endDate

@@ -5,6 +5,7 @@ import { TooltipPosition } from '@angular/material/tooltip';
 import { MsalService } from '@azure/msal-angular';
 import { AuthenticationResult } from '@azure/msal-browser';
 import {getToken} from '../../app/fetch'
+import { DataFileService } from '../data-file.service';
 
 
 
@@ -22,7 +23,7 @@ export class HeaderComponent implements OnInit {
  
   
 
-  constructor(private msalService:MsalService) { 
+  constructor(private msalService:MsalService , private dataService : DataFileService) { 
     msal = this.msalService
   }
 
@@ -48,7 +49,7 @@ export class HeaderComponent implements OnInit {
   }
 
   login(){
-    debugger
+    
   this.msalService.loginRedirect();
     // this.msalService.loginPopup().subscribe((response:AuthenticationResult)=>{
     //   this.msalService.instance.setActiveAccount(response.account)
@@ -64,6 +65,11 @@ export class HeaderComponent implements OnInit {
     this.msalService.logoutRedirect({
       postLogoutRedirectUri: 'http://localhost:4200/'
     });
+  }
+
+  newProfile () : void {
+  
+   this.dataService.newProfile();
   }
 
 }

@@ -1,0 +1,449 @@
+body.MasterData {
+    border-bottom: solid;
+    margin-left: 0px;
+    
+}
+
+.Properties {
+    margin-left: 59%;
+    margin-bottom: 1%;
+}
+
+.Property1 {
+  padding: 10px;
+}
+
+.Property2 {
+    padding: 10px;
+  }
+
+  .Property3 {
+    padding: 10px;
+  }
+
+.ListData {
+    margin-top: 10px;
+    margin-left: 10px;
+    color: brown;
+    
+
+}
+
+.ipMstId {
+    margin-left: 10px;
+    margin-bottom: 20px;
+}
+
+
+/* label {
+  margin-left: 15px;
+} */
+
+.listCode {
+  margin-left: 30px;
+}
+
+.col-md-2 {
+  display: inline;
+  margin-left: 30px;
+ 
+}
+
+
+
+.col-sm-4 {
+  position: absolute;
+}
+.ListItems {
+  display: inline;
+}
+
+.margin{
+  margin-left: 60px;
+}
+
+.margin3{
+  /* margin-left: 100px; */
+  float: right;
+  margin-right: 3%;
+  MARGIN-TOP: 9PX;
+}
+.delete_button{
+  color: red;
+  
+  
+}
+
+
+.edit_button{
+  color: rgb(63, 63, 185);
+  
+}
+.add_button{
+  color: green;
+  
+}
+.item2
+{
+  margin-left: 60px;
+}
+.item3{
+  margin-left: 70px;
+}
+.item4{
+  margin-left: 140px;
+}
+.item5{
+  margin-left: 180px;
+}
+.drop-down{
+  background-color: none;
+}
+.card-content{
+  margin-top: 10px;
+
+}
+.header{
+  margin-top: 2%;
+}
+input{
+  margin: 1%;
+  margin-bottom: 2%;
+}
+.card{
+margin-bottom: 10px;
+}
+
+svg{
+  height: 20px;
+  margin-left: 15px;
+}
+.first_icon{
+  margin-left: 20%;
+}
+
+.HeaderLabel {
+  color: brown;
+  font-weight: 500;
+  padding-bottom: 10px;
+  padding-left: 5px;
+}
+
+#listDtlValueComment,#divlistDtlDec {
+  display: inline;
+}
+
+.leftMrg {
+  margin-left: -60px;
+    text-align: -webkit-center;
+}
+
+.marg {
+  margin-left: 10px;
+}
+
+.alignCntr {
+  text-align: center;
+}
+
+hr {
+  margin: 3px;
+  color: inherit;
+  border: 0;
+  border-top: 1px solid;
+  opacity: .25;
+}
+
+.MasterTitle {
+  color: brown;
+  font-size: 22px;
+  
+}
+
+.Icons {
+  margin-left: 80%;
+  padding-bottom: 10px;
+}
+
+.search {
+  float: right;
+}
+#SearchIcon {
+  position: absolute;
+  
+}
+
+.searchbar {
+  position: relative;
+  width: 50%;
+  
+}
+.filter_button{
+  position: absolute;
+  left: 96%;
+  top: 110px;
+  color: black;
+  margin-top: -48px;
+  font-style: solid;
+ 
+}
+.margin1{
+  width: 30%;
+  margin-left: 68px;
+}
+
+
+.margin2 {
+  width: 29%;
+  margin-left: -35px;
+}
+.margin4{
+  width:22%;
+}
+.listData {
+  margin-left: 7%;
+}
+
+/* .filter_form {
+  width: 50%;
+
+} */
+
+.Search_btn{
+  margin-left: 10%;
+}
+.mode{
+  position: absolute;
+  left: 75%;
+  top : 200px;
+  
+}
+.form-control{
+  width: auto;
+
+}
+.addBtn{
+  background-color: white;
+  border: none;
+  color: green;
+  padding: 1px;
+
+}
+.editBtn{
+  background-color: white;
+  border: none;
+  color:rgb(85, 19, 192);
+}
+.deleteBtn{
+  background-color: white;
+  border: none;
+  color: red;
+}
+.rafi{
+  display: inline;
+}
+
+.hrA{
+  float: right;
+  margin-right: 15px;
+}
+.hrLD{
+  margin-left:190px;
+}
+.hrLV{
+  margin: 54px;
+}
+.hrC {
+  padding-left: 195px;
+}
+
+.srchBtn{
+  margin-left: 2%;
+}
+
+.spaceL{
+  padding-left: 30px;
+  width: 40px;
+ }
+
+ /* #matForm,#addMasId,#editMst,#delMasId{
+  display: inline;
+ } */
+
+ #addMasId,#editMst,#delMasId,#mstDataLabel {
+  display: inline;
+ }
+
+ .LCL{
+  margin-left: 100px;
+ }
+
+ .extAdddiv , .card-header {
+  display: inline;
+ }
+
+ .extAdddiv {
+  margin-left: 22px;
+ }
+
+ .extAdd {
+  background-color: #f7f7f7
+ }
+
+ .textWidth {
+  width: 46%;
+ }
+
+ .LDL {
+  margin-left: 45px;
+ }
+
+ .modal-content {
+  width: 123%;
+ }
+
+ #matForm,#mstActions {
+  display: inline;
+ }
+
+ #mstActions {
+  float: right;
+  margin-right: 15px;
+
+ }
+
+ .mstDtlbl {
+  width: 30%;
+  
+ }
+
+ .mstIdLbl {
+  margin-left: 3%;
+ }
+
+ .addDelMST{
+
+  background-color: green;
+  color: white;
+  border: none;
+  border-radius: 4px
+ }
+ form.form-control{
+  border: none !important;
+  width: 643px;
+ }
+
+.widthBox3 , .widthBox4 {
+  display: inline;
+  width: 175px;
+}
+.widthBox1 , .widthBox2 {
+  display: inline;
+  width: 175px;
+}
+
+.ipListDtlDesc {
+  float: right;
+}
+
+.ipListDtlDes {
+  float: right;
+}
+ 
+.mstId {
+  margin-left: 20px;
+  margin-bottom: 10px;
+}
+.listDtlId {
+  float: right; 
+  margin-right: 70px;
+}
+.widthBox1 , .widthBox3 {
+  margin-left: 17px;
+}
+.widthBox2 , .widthBox4{
+  margin-left: 47px;
+  margin-top: 12px;
+  margin-bottom: 19px;
+}
+.CancelBtn , .srchBtn {
+  display: inline;
+ 
+}
+.CancelBtn {
+  margin-left: 74%;
+  padding: 6px;
+  border-radius: 6px;
+  background-color: red;
+  color: white;
+  border: none;
+}
+
+.delLable {
+  margin-bottom: 16px;
+}
+
+.ipRcrtSta {
+  float: right;
+  margin-right: 27px;
+  margin-bottom: 23px
+}
+
+/*         */
+
+.mstCard {
+    margin-top: 15px;
+    border-radius: 10px;
+}
+.dropDown {
+    margin-left: 20px;
+}
+
+.listCard {
+    margin-top: 15px;
+    border-radius: 10px;
+}
+
+.listHeader {
+    width: 80%;
+    margin-left: 110px;
+    background-color:#f7f7f7 ;
+}
+
+.hrLIstDtlValue {
+    margin-left: 63px;
+}
+
+.hrAction {
+    margin-left: 363px;
+}
+
+.hrDescription {
+    margin-left: 270px;
+}
+.list {
+    width: 80%;
+    margin-left: 110px;
+    margin-top: 15px;
+}
+
+/* .modal {
+  position: relative;
+  z-index: 9999;
+}
+
+.modal-content {
+  z-index: 2000;
+} */
+
+.ListDtlCmt {
+  width: 260px;
+  margin-left: 0px;
+  text-align: -webkit-center;
+}
+
+.lDSCR {
+  width: 260px;
+    text-align: -webkit-center;
+    MARGIN-LEFT: 85PX;
+}

@@ -40,7 +40,6 @@ selectedFiles?: FileList;
   }
  
   ngOnInit(): void {
-    debugger
     this.getSkills();
     this.getComplexity();
     this.fileInfos = this.uploadService.getFiles();
@@ -67,11 +66,11 @@ selectedFiles?: FileList;
   }
 
   getSelectedSkill(value:any){
-    debugger
+  
     this.SkillId=value;
   }
   getSelectedComplexity(value:any){
-    debugger
+    
     this.ComplexityId=value;
   }
 
@@ -79,7 +78,7 @@ selectedFiles?: FileList;
   addSkill(skillName:any){
       this.Skillresponse='';
       this.Skillresponse1='';
-    debugger
+    
   try{
    
     this.http.post<any>('http://20.192.1.163:3000/skillsManager/addSkill',
@@ -104,7 +103,7 @@ selectedFiles?: FileList;
   }
 
   addQuestion(skillId:any,cmpId:any,Question:any,Answer:any,Answerkeywords:any){
-    debugger
+  
     this.http.post<any>('http://20.192.1.163:3000/qaManager/insertQA',
     {skillId,cmpId,Question,Answer,Answerkeywords},{headers:this.headers}).subscribe((response) => {
        this.QAresponse = response.Message;
@@ -123,7 +122,7 @@ selectedFiles?: FileList;
   }
 
   upload(): void {
-    debugger
+
     this.progress = 0;
 
     if (this.selectedFiles) {

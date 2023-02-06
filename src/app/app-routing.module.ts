@@ -15,6 +15,9 @@ import { WebapiComponent } from './webapi/webapi.component';
 import { HeaderComponent } from './header/header.component';
 import { MaslGuard } from './masl.guard';
 import { AssesmentScreenComponent } from './assesment-screen/assesment-screen.component';
+import { QuestionAnswerComponent } from './question-answer/question-answer.component';
+import { ListItemComponent } from './list-item/list-item.component';
+import { TestComponent } from './test/test.component';
 
 const routes: Routes = [
    {path:'',component:DashboardComponent,},
@@ -30,6 +33,10 @@ const routes: Routes = [
   {path:'barchart',component:ScoreComponent,canActivate:[MaslGuard]},
   {path:'addqa',component:EditDataComponent},
   {path:'interview-info',component:InterviewInfoComponent},
+  {path:'Question-Answer',component:QuestionAnswerComponent},
+  {path:'list-item' , component:ListItemComponent},
+  {path:'test' , component:TestComponent},
+
   // {path:'**',component:DashboardComponent},
   
   

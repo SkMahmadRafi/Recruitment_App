@@ -45,6 +45,7 @@ export class ProfileCreationComponent implements OnInit{
   public static Email: any = '';
   public static Experiance: any = '';
   EmailforEdit:string='';
+  detlsOfCandi : any ;
 
   // Skill:any=[{skillId:'1',skillName:'C#'},{skillId:'2',skillName:'Angular'},{skillId:'3',skillName:'SQL'},{skillId:'4',skillName:'Azure'}];
 
@@ -57,6 +58,7 @@ export class ProfileCreationComponent implements OnInit{
 
   ngOnInit(): void {
     this.EmailforEdit=this._service.arr;
+    this.setValueForProfile();
     this.getSkills();
     this.getComplexity();
     this.form = this.formBuilder.group({
@@ -124,7 +126,7 @@ export class ProfileCreationComponent implements OnInit{
   SkillA: any = [];
 
   storeDatas() {
-  debugger
+  
     this.SkillA = this.skillFormGroup.value.Skills;
     
     console.log(this.SkillA);
@@ -236,7 +238,7 @@ export class ProfileCreationComponent implements OnInit{
   }
 myData:any;
   checkExistingcandidate() {
-debugger
+
     this.email = this.firstFormGroup.controls['email'].value;
     this.sEmail = this.fifthFormGroup.controls['searchEmail'].value;
     console.log(this.sEmail);
@@ -283,7 +285,7 @@ debugger
     this.next();
   }
   showCandidateAssesmentStatus() {
-    debugger
+    
     this.sEmail = this.fifthFormGroup.controls['searchEmail'].value;
     
   }
@@ -349,7 +351,7 @@ debugger
   Mymessage:any="";
 
   submit() {
-    debugger
+    
     console.log(this.form.value);
     this.cArray = this.form.value.selected;
     console.log(this.chooseDate);
@@ -379,6 +381,25 @@ debugger
         alert(this.Mymessage)
       });
   }
+
+  setValueForProfile () : void {
+    if (this._service.setVal === true) {
+    this.firstFormGroup.controls.email.setValue(this._service.canDetails.email);
+    this.firstFormGroup.controls.experience.setValue(this._service.canDetails.experience);
+    this.firstFormGroup.controls.name.setValue(this._service.canDetails.name);
+    this.firstFormGroup.controls.phone.setValue(this._service.canDetails.phone);
+
+     
+    }
+    else {
+      this.firstFormGroup.controls.email.setValue("");
+    this.firstFormGroup.controls.experience.setValue("");
+    this.firstFormGroup.controls.name.setValue("");
+    this.firstFormGroup.controls.phone.setValue("");
+     
+    }
+  }
+
 
   
 }

@@ -112,7 +112,7 @@ complexityN:any;
    
     this.InterviewId=this.candidate.interviewid;
     this.InterviewDate=this.candidate.date;
-    debugger
+    
     this.AssDate=this.candidate.date;
     this.FilterDate = formatDate(this.InterviewDate, 'MM/dd/yyyy', 'en-US');
     console.log(this.FilterDate)
@@ -137,7 +137,7 @@ complexityN:any;
    //Assessment start button 
    assesmentStart()
    {
-     debugger;
+     
      this.getQueAns(this.CId,this.FilterDate,this.Time,this.InterviewId,this.Myskills,this.RowandQuestion_number);
      this.hideMe=true;
      this.keywordload();
@@ -145,7 +145,7 @@ complexityN:any;
    }
   
   getQueAns(canId:any,Date:any,starttime:any,InterviewId:any,skills:any,RowandQuestion_number:any){
-    debugger;
+    
     try{
     this.httpClient.post<any>('http://20.192.1.163:3000/randomizationManager',
     {
@@ -192,7 +192,7 @@ complexityN:any;
     }else{
 
     
-    debugger;
+    
     let canId=this.CId;
     let RowandQuestion_number=this.i;
     let score=this.recruiterData.controls['score'].value;
@@ -219,7 +219,7 @@ complexityN:any;
 
   //duplicate method for left arrow //it use when we have api
   prevQA(){
-    debugger;
+    
     this.i--;
     let canId=this.CId;
     let RowandQuestion_number=this.i;
@@ -240,7 +240,7 @@ complexityN:any;
    
   }
   updateData(){
-      debugger;
+      
     var Score=this.recruiterData.controls['score'].value;
     var Note=this.recruiterData.controls['note'].value;
     this.ScoreA.push(Score);
@@ -249,7 +249,7 @@ complexityN:any;
   }
 
   saveData(){
-    debugger;
+    
     let status=this.endstatus;
     let canId=this.CId;
     let assessmentId=this.Asid;
@@ -279,7 +279,7 @@ complexityN:any;
   //slider value
   updateSetting(event:any)
   {
-    debugger
+  
     this.sliderOutput=event;
     this.resume=true; 
   }

@@ -18,7 +18,10 @@ export class DataFileService {
   Assessments:any=[];
   Search_email:any;
   candidateEmail:any;
-  
+  canDetails : any ;
+  setVal : any ;
+  canInfo : any ;
+  showFiltered : boolean = false;
   constructor(private _http:HttpClient) { }
 
   Intermediate(data:any)
@@ -26,11 +29,23 @@ export class DataFileService {
     this.arr=data;
     console.log(this.arr)
   }
+
+  Intermediate2(data:any)
+  {
+    this.canDetails=data;
+    this.setVal = true;
+
+  }
   
   Intermediate1(data:any)
   {
     this.arr=data;
     console.log(this.arr)
+  }
+
+  newProfile () : void {
+    
+    this.setVal = false;
   }
 
   sendData(emailId:any,phone:any,name:any,experience:any,skills:number)
@@ -149,5 +164,9 @@ export class DataFileService {
 
   getFiles(): Observable<any> {
     return this._http.get(`${this.baseUrl}/files`);
+  }
+
+  candiAndIntervInfo (data : any) : void { 
+       this.canInfo = data ;
   }
 }

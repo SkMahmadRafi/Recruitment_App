@@ -1,14 +1,8 @@
 
-
-
-
-
-
-
  <div class="backgroud">
   <mat-card class="adjustable">
     <mat-card-header>
-      <mat-card-title>Profile Creation</mat-card-title>
+      <mat-card-title>Profile</mat-card-title>
       <div class="redirect_icon">
         <mat-icon matTooltip="CandidateInfo Screen" routerLink="/Candidate-Info">output</mat-icon>
        </div>
@@ -26,8 +20,8 @@
       </form>
     </div>
 
-    <mat-stepper [linear]="isLinear" #stepper>
-      <mat-step [stepControl]="firstFormGroup">
+    <mat-stepper [linear]="isLinear" #stepper [linear]="true">
+      <mat-step [stepControl]="firstFormGroup" [completed]="firstFormGroup.valid">
         
         <form [formGroup]="firstFormGroup" class="">
           <ng-template matStepLabel>Basic Info</ng-template>
@@ -49,7 +43,7 @@
             <input matInput placeholder="Enter Experience in years" formControlName="experience" required />
           </mat-form-field>
           <div class="basic-info-button">
-            <button mat-button matStepperNext class="green" (click)="showCandidateAssesmentStatus()">
+            <button mat-button matStepperNext class="green" [disabled]="!firstFormGroup.valid" (click)="showCandidateAssesmentStatus()">
               Next
             </button>
             
@@ -58,7 +52,7 @@
       </mat-step>
 
       
-      <mat-step [stepControl]="skillFormGroup" label="Skills">
+      <mat-step  [stepControl]="skillFormGroup" label="Skills">
 
         <form [formGroup]="skillFormGroup">
           <div formArrayName="Skills">
@@ -111,7 +105,7 @@
 
           <div class="skills-buttons" *ngIf="skillData">
             <button mat-button matStepperPrevious class="color2">Back</button>
-            <button mat-button matStepperNext class="green" (click)="storeDatas()">Next</button>
+            <button mat-button matStepperNext class="green"  (click)="storeDatas()">Next</button>
           </div>
           <div class="submitt" *ngIf="skillData == null">
             <button mat-button (click)="storeDatas()"  class="green">
@@ -145,7 +139,7 @@
 
           <div class="resume-buttons">
             <button mat-button matStepperPrevious class="color2">Back</button>
-            <button mat-button matStepperNext class="green" (click)="next()">
+            <button mat-button matStepperNext class="green"  (click)="next()">
               Next
             </button>
           </div>

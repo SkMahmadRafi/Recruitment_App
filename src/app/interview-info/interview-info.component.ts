@@ -25,16 +25,23 @@ export class InterviewInfoComponent implements OnInit {
   start_date:string;
   end_date:string;
   InterviewDate:any;
+  popup : boolean = false;
   dialogRef: MatDialogRef <any> ;
 
   constructor(private http: HttpClient,private dfs:DataFileService,private dialog: MatDialog) { }
 
   ngOnInit(): void {
-    this.getCandidates();
+    
+    if (this.dfs.showFiltered == true) {
+      this.filterForClosed();
+    }
+    else {
+      this.getCandidates();
+    }
   }
 
   getCandidates(){
-    debugger;
+    
 
     this.dfs.ScheduledCandidates().subscribe(
       response=>{
@@ -48,7 +55,7 @@ export class InterviewInfoComponent implements OnInit {
     );
   }
   openDialogScore(value:any){
-    debugger
+
     this.dfs.Intermediate1(value);
 
     this.dialogRef = this.dialog.open(ScoreComponent, {
@@ -61,7 +68,7 @@ export class InterviewInfoComponent implements OnInit {
   }
 
   searchFilter(status:any,name:any,emailId:any,startDate:any,endDate:any){
-    debugger
+  
     console.log(this.start_date)
     console.log(startDate)
     this.dfs.ScheduledCandidatesFilter(status,name,emailId,startDate,endDate).subscribe(
@@ -72,9 +79,27 @@ export class InterviewInfoComponent implements OnInit {
   }
 
   sendData(data:any){
-    debugger;
+  
     this.dfs.Intermediate(data);
   }
+
+  sendDataToDFS (info : any) {
+     this.dfs.candiAndIntervInfo(info);
+     console.log(info);
+  }
+
+  filterForClosed () {
+    let status = "closed" ;
+    let name = "";
+    let email = "" ;
+    let startDate = "" ;
+    let endDate = " " ;
+
+    this.searchFilter(status , name , email , startDate , endDate);
+    
+  }
+
+
   reset(){
     this.Searchvalue="";
     this.Searchvalue="";

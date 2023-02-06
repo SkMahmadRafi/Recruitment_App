@@ -1,0 +1,577 @@
+<div class="container-fluid">
+    <div>
+        <mat-card class="mstCard">
+            <mat-card-content>
+                <label class="HeaderLabel">Please select a listCode to view the listDetail</label>
+                <br>
+                <mat-form-field class="dropDown">
+                    <mat-label> ListMsCode </mat-label>
+                    <mat-select class="drop-down">
+                        <mat-option *ngFor=" let item of dropDownList"
+                            (click)="getListDtlByMstId(item)">{{item.listcode}}</mat-option>
+
+                    </mat-select>
+                </mat-form-field>
+                <div id="mstDataLabel" *ngIf="!deleteMst">
+                    <label class="LCL" for="LC">ListCode</label>
+                    <input type="text" id="LC" name="ListCode" value={{selectedMstCode}} disabled>
+                    <label class="LDL" for="LD">Description</label>
+                    <input type="text" id="LD" name="Description" value={{selectedMstDescr}} disabled>
+
+                </div>
+                <div id="mstActions">
+                    <div id="addMasId" class="spaceL">
+                        <!-- <button data-bs-target="#addMstPop" data-bs-toggle="modal" type = "button"  class="addDelMST">Add MasListId</button> -->
+                        <button type="button" class="addBtn" data-bs-toggle="modal" data-bs-target="#addMstPop"
+                            (click)="addMst()"><mat-icon>add</mat-icon></button>
+                    </div>
+
+                    <div id="editMst" class="spaceL">
+                        <button type="button" class="editBtn" data-bs-toggle="modal" data-bs-target="#EditMstPop"
+                            [hidden]=deleteMst (click)="editMst()"><mat-icon>mode_edit</mat-icon></button>
+                    </div>
+                    <div id="delMasId" class="spaceL">
+                        <!-- <button type = "button" data-bs-toggle="modal" data-bs-target = "#DeletePop" class="addDelMST" [disabled]="false" >Delete MasListId</button> -->
+                        <button type="button" class="deleteBtn" data-bs-toggle="modal" data-bs-target="#DeleteMstPop"
+                            [hidden]=deleteMst><mat-icon>delete</mat-icon></button>
+                    </div>
+                </div>
+
+            </mat-card-content>
+        </mat-card>
+    </div>
+    <div>
+        <mat-card class="listCard">
+                
+            <mat-card-content>
+                <h2 class="ListData"> List Data</h2>
+                <div>
+                    <mat-card class="listHeader">
+                        <mat-card-header>
+                            <div class="hrLIstDtlValue"><b> LIstDtlValue</b></div>
+                            <div class="hrDescription"><b>Description</b></div>
+
+                            <div class="hrAction"><b>Action </b></div>
+                            <div class="extAdddiv" *ngIf="!deleteMst">
+                                <button type="button" class="addBtn extAdd" data-bs-toggle="modal"
+                                    data-bs-target="#addListPop"><mat-icon
+                                        (click)="addListDtl()">add</mat-icon></button>
+                            </div>
+
+                        </mat-card-header>
+                    </mat-card>
+
+                
+
+                <div class="" >
+                    <mat-card class="list" *ngFor="let x of serviceData">
+                        <mat-card-content>
+                            <div  id="listDtlValueComment"> <label class="ListDtlCmt" > {{x.listdtlvalue}}
+                                <br>{{x.listdtlcomment}}</label> </div>
+
+                        <div  id="divlistDtlDec">
+                            <label class="lDSCR">{{x.listdtldesc}}</label>
+                        </div>
+
+
+
+                        <div class="margin3">
+
+                            <button type="button" class="addBtn" data-bs-toggle="modal"
+                                data-bs-target="#addListPop"><mat-icon
+                                    (click)="addListDtl()">add</mat-icon></button>
+
+                            <button type="button" class="editBtn" data-bs-toggle="modal"
+                                data-bs-target="#EditListPop"><mat-icon
+                                    (click)="editListDtl(x)">mode_edit</mat-icon></button>
+
+                            <button type="button" class="deleteBtn" data-bs-toggle="modal"
+                                data-bs-target="#DeleteListPop"><mat-icon
+                                    (click)="getDelListDtlId(x.listdtlid)">delete</mat-icon></button>
+                        </div>
+
+                        </mat-card-content>
+                    </mat-card>
+                </div>
+            </div>
+
+            </mat-card-content>
+
+        </mat-card>
+
+    </div>
+
+</div>
+
+
+""
+<div class="">
+    <h2>Modal Example</h2>
+    <!-- Trigger the modal with a button -->
+    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>
+  
+    <!-- Modal -->
+    <!-- <div class="modal hide fade in" id="myModal" data-keyboard="false" data-backdrop="static"  role="dialog"> -->
+    <div class="modal fade" id="myModal"  role="dialog">
+        <!-- <div id="modal" class="modal hide fade in" data-keyboard="false" data-backdrop="static" > -->
+      <div class="modal-dialog">
+      
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Modal Header</h4>
+          </div>
+          <div class="modal-body">
+            <p>Some text in the modal.</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+    
+  </div>
+
+
+
+
+
+<div class="card header" style="width: 100%; height: 10% !important;">
+    <div class="card-content">
+        <div>
+            <label class="HeaderLabel">Please select a listCode to view the listDetail</label>
+        </div>
+        <div id="matForm" class="spaceL">
+            <mat-form-field>
+                <mat-label> ListMsCode </mat-label>
+                <mat-select class="drop-down">
+                    <mat-option *ngFor=" let item of dropDownList"
+                        (click)="getListDtlByMstId(item)">{{item.listcode}}</mat-option>
+
+                </mat-select>
+            </mat-form-field>
+
+
+
+        </div>
+
+        <div id="mstActions">
+            <div id="addMasId" class="spaceL">
+                <!-- <button data-bs-target="#addMstPop" data-bs-toggle="modal" type = "button"  class="addDelMST">Add MasListId</button> -->
+                <button type="button" class="addBtn" data-bs-toggle="modal" data-bs-target="#addMstPop"
+                    (click)="addMst()"><mat-icon>add</mat-icon></button>
+            </div>
+
+            <div id="editMst" class="spaceL">
+                <button type="button" class="editBtn" data-bs-toggle="modal" data-bs-target="#EditMstPop"
+                    [hidden]=deleteMst (click)="editMst()"><mat-icon>mode_edit</mat-icon></button>
+            </div>
+            <div id="delMasId" class="spaceL">
+                <!-- <button type = "button" data-bs-toggle="modal" data-bs-target = "#DeletePop" class="addDelMST" [disabled]="false" >Delete MasListId</button> -->
+                <button type="button" class="deleteBtn" data-bs-toggle="modal" data-bs-target="#DeleteMstPop"
+                    [hidden]=deleteMst><mat-icon>delete</mat-icon></button>
+            </div>
+        </div>
+
+        <!-- <mat-icon class="filter_button" (click)="getresponse()">filter_alt</mat-icon> -->
+        <div id="mstDataLabel" *ngIf="!deleteMst">
+            <label class="LCL" for="LC">ListCode</label>
+            <input type="text" id="LC" name="ListCode" value={{selectedMstCode}} disabled>
+            <label class="LDL" for="LD">Description</label>
+            <input type="text" id="LD" name="Description" value={{selectedMstDescr}} disabled>
+
+        </div>
+    </div>
+</div>
+
+
+
+<div class="card" style="width: 100%;">
+    <div class="card-content">
+
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-10">
+                    <div class="listData">
+                        <h1 class="ListData"> List Data</h1>
+
+
+                        <!-- <i class="fa fa-search" id = "SearchIcon" (click)="getresponse('s')"></i> -->
+                        <div class="Properties">
+                            <!-- <label for="ListMstId"><b>ListMstId :</b>{{ddSelected}} </label> -->
+                            <!-- <input type="text" value ="06" class = "ipMstId" id="ListMstId" name="ListMstId" disabled > -->
+                            <!-- <label class="listCode" for="ListCode"><b>ListCode :</b> rcrLevel</label> -->
+                            <!-- <input type="text" value ="Something" id="ListCode" class = "ipMstId " name="ListCode" disabled> -->
+                        </div>
+
+                        <div class="card" style="width: 100%;">
+                            <div class="card-header">
+                                <!-- <div class="col-md-2"> <b>ListMstId</b> </div>
+          <div class="col-md-2 item2"><b>ListDtlID </b></div> -->
+                                <div class="hrLV rafi col-sm-2"><b> LIstDtlValue</b> </div>
+                                <div class="hrLD rafi col-sm-3 marg"><b>Description</b></div>
+
+                                <div class=" hrA rafi "><b>Action </b>
+                                    <div class="extAdddiv" *ngIf="!deleteMst">
+                                        <button type="button" class="addBtn extAdd" data-bs-toggle="modal"
+                                            data-bs-target="#addListPop"><mat-icon
+                                                (click)="addListDtl()">add</mat-icon></button>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <div *ngFor="let x of serviceData" class="card" style="width: 100%;">
+                            <div class="card-content">
+                                <!-- <label class="col-sm-2 margin" >{{x.ListMstId}}</label>
+          <label class="col-sm-2" > {{x.ListDtlID}} </label> -->
+                                <div id="listDtlValueComment"> <label class="col-md-4 leftMrg"> {{x.listdtlvalue}}
+                                        <br>{{x.listdtlcomment}}</label> </div>
+
+                                <div id="divlistDtlDec">
+                                    <label class="col-sm-4 alignCntr">{{x.listdtldesc}}</label>
+                                </div>
+
+
+
+                                <div class="margin3">
+
+                                    <button type="button" class="addBtn" data-bs-toggle="modal"
+                                        data-bs-target="#addListPop"><mat-icon
+                                            (click)="addListDtl()">add</mat-icon></button>
+
+                                    <button type="button" class="editBtn" data-bs-toggle="modal"
+                                        data-bs-target="#EditListPop"><mat-icon
+                                            (click)="editListDtl(x)">mode_edit</mat-icon></button>
+
+                                    <button type="button" class="deleteBtn" data-bs-toggle="modal"
+                                        data-bs-target="#DeleteListPop"><mat-icon
+                                            (click)="getDelListDtlId(x.listdtlid)">delete</mat-icon></button>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+
+                        <!-- <div class="mode">
+  
+  
+            <div class="row">
+              <form (ngSubmit)="getvaule(product)" #product="ngForm" *ngIf='response' class="form-control">
+                <input type="text" class="form-control" placeholder="LIstDtlValue" ngModel name="Account Number"
+                  #number="ngModel" required /><br>
+                <input type="text" class="form-control" placeholder="ListDtlDesc" ngModel name="Amount" #Amount="ngModel"
+                  required /><br>
+                 <button class="btn btn-primary" [disabled]="!product.valid">Add</button> 
+                <button class="btn btn-primary srchBtn">Search</button>
+              </form>
+            </div>
+          </div> -->
+                        <!-- Modal -->
+
+                        <!-- <div class="modal fade" id="addAndEditPop" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Add</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <form action="">
+                    <label for="">ListMstId : </label>
+                    <label for="" style="margin-left: 54px;">ListCode :</label>
+                    <input type="text" style="margin: 10px;">
+                    <label for="">LIstDtlValue :</label>
+                    <input type="text" style="margin: 10px;">
+                    <br>
+                    <label for="">ListDtlDesc :</label>
+                    <input type="text" style="margin: 13px;">
+                    <br>
+                    <label for="" style="margin: 11px;">ListDtlID :</label>
+                    <input type="text" style="margin: 11px;">
+  
+                  </form>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary">Add</button>
+                </div>
+              </div>
+            </div>
+          </div> -->
+                        <div class="modal fade" id="addMstPop" tabindex="-1" aria-labelledby="exampleModalLabel"
+                            aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Add ListMstId</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="row">
+                                            <form [formGroup]="addMstFormGroup">
+
+                                                <input placeholder="ListCode" class="textWidth"
+                                                    formControlName="LIstCode">
+
+                                                <input class="ipRcrtSta" placeholder="mst Description" class="textWidth"
+                                                    formControlName="RcrtStatus">
+
+
+                                                <!-- <button class="btn btn-primary" [disabled]="!product.valid">Add</button> -->
+                                                <button type="button" class="CancelBtn" data-bs-dismiss="modal"
+                                                    aria-label="Close">Cancel</button>
+                                                <button class="btn btn-primary srchBtn" data-bs-dismiss="modal"
+                                                    aria-label="Close" [disabled]="!addMstFormGroup.valid"
+                                                    (click)="addMstInDB()">Add</button>
+
+                                            </form>
+                                        </div>
+                                    </div>
+                                    <!-- <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary">Add</button>
+                </div> -->
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="modal fade" id="addListPop" tabindex="-1" aria-labelledby="exampleModalLabel"
+                            aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">AddListDetail</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="row">
+                                            <form [formGroup]="addListFormGroup">
+                                                <label class="mstId">ListMstCode : {{selectedMstId}} </label>
+
+                                                <br>
+                                                <!-- <span *ngIf = "LIstCode.invalid && Amount.touched" style="color: red ; font-size: 20px;">Enter Amount</span> -->
+                                                <!-- <input type="text"  class="form-control widthBox1"  ngModel name="LIstDtlValue" placeholder="LIstDtlValue"
+                            #number="ngModel" required /> 
+  
+                          <input type="text" class="form-control widthBox2" placeholder="ListDtlDesc" ngModel
+                            name="LIstDtlValue" #number="ngModel" required />
+                          <br>
+                          <input type="text"  class="form-control widthBox3" placeholder="Comment" ngModel
+                            name="ListDtlDesc" #Amount="ngModel" /> -->
+
+                                                <input placeholder="LIstDtlValue" class="textWidth"
+                                                    formControlName="LIstDtlValue">
+                                                <input class="ipListDtlDesc" placeholder="ListDtlDesc" class="textWidth"
+                                                    formControlName="ListDtlDesc">
+                                                <input placeholder="Comment" class="textWidth"
+                                                    formControlName="Comment">
+                                                <!-- <input type="text" class="form-control widthBox4" placeholder="Comment" ngModel name="Comment"
+                            #number="ngModel" /> -->
+                                                <!-- <button class="btn btn-primary" [disabled]="!product.valid">Add</button> -->
+                                                <button type="button" class="CancelBtn" data-bs-dismiss="modal"
+                                                    aria-label="Close">Cancel</button>
+                                                <button class="btn btn-primary srchBtn" data-bs-dismiss="modal"
+                                                    aria-label="Close" [disabled]="!addListFormGroup.valid"
+                                                    (click)="addListDB()">Add</button>
+
+                                            </form>
+                                        </div>
+                                    </div>
+                                    <!-- <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary">Add</button>
+                </div> -->
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="modal fade" id="EditListPop" tabindex="-1" aria-labelledby="exampleModalLabel"
+                            aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">EditListDataDetail</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="row">
+                                            <form [formGroup]="myFormGroup">
+                                                <label class="mstId"> ListMstId : {{selectedMstId}} </label>
+                                                <label class="listDtlId"> ListDtlId :{{editingListDataDetail}}</label>
+                                                <br>
+                                                <!-- <span *ngIf = "LIstCode.invalid && Amount.touched" style="color: red ; font-size: 20px;">Enter Amount</span> -->
+
+                                                <!-- <input  placeholder="Enter Name" formControlName="LIstCode" [disabled]="true"> -->
+
+                                                <input placeholder="LIstDtlValue" class="textWidth"
+                                                    formControlName="LIstDtlValue">
+                                                <input class="ipListDtlDes" placeholder="ListDtlDesc" class="textWidth"
+                                                    formControlName="ListDtlDesc">
+                                                <input placeholder="Comment" class="textWidth"
+                                                    formControlName="Comment">
+
+
+                                                <!-- <input type="text" [(ngModel)] = "" [value]= edData1 class="form-control widthBox2" placeholder="LIstDtlValue" ngModel
+                            name="LIstDtlValue" #number="ngModel" required />
+                          <br>
+                          <input type="text" [value]= edData2 class="form-control widthBox3" placeholder="ListDtlDesc" ngModel
+                            name="ListDtlDesc" #Amount="ngModel" required />
+                          <input type="text" [value]= edData3 class="form-control widthBox4" placeholder="Comment" ngModel name="Comment"
+                            #number="ngModel"  /> -->
+                                                <!-- <button class="btn btn-primary" [disabled]="!product.valid">Add</button> -->
+                                                <button type="button" class="CancelBtn" data-bs-dismiss="modal"
+                                                    aria-label="Close">Cancel</button>
+                                                <button class="btn btn-primary srchBtn" data-bs-dismiss="modal"
+                                                    aria-label="Close" (click)="editListDtlDB ()"
+                                                    [disabled]="!myFormGroup.valid">Update</button>
+
+                                            </form>
+                                        </div>
+                                    </div>
+                                    <!-- <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary">Add</button>
+                </div> -->
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="modal fade" id="EditMstPop" tabindex="-1" aria-labelledby="exampleModalLabel"
+                            aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">EditMstDetail</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="row">
+                                            <form [formGroup]="editMstFormGroup">
+
+                                                <!-- <span *ngIf = "LIstCode.invalid && Amount.touched" style="color: red ; font-size: 20px;">Enter Amount</span> -->
+
+                                                <!-- <input  placeholder="Enter Name" formControlName="LIstCode" [disabled]="true"> -->
+
+                                                <input placeholder="ListMstId" class="textWidth" formControlName="mstId"
+                                                    [readOnly]="true">
+                                                <input class="ListCode" placeholder="LIstCode" class="textWidth"
+                                                    formControlName="listMstCode">
+                                                <input placeholder="MstDescr" class="textWidth"
+                                                    formControlName="mstDescr">
+
+
+                                                <!-- <input type="text" [(ngModel)] = "" [value]= edData1 class="form-control widthBox2" placeholder="LIstDtlValue" ngModel
+                          name="LIstDtlValue" #number="ngModel" required />
+                        <br>
+                        <input type="text" [value]= edData2 class="form-control widthBox3" placeholder="ListDtlDesc" ngModel
+                          name="ListDtlDesc" #Amount="ngModel" required />
+                        <input type="text" [value]= edData3 class="form-control widthBox4" placeholder="Comment" ngModel name="Comment"
+                          #number="ngModel"  /> -->
+                                                <!-- <button class="btn btn-primary" [disabled]="!product.valid">Add</button> -->
+                                                <button type="button" class="CancelBtn" data-bs-dismiss="modal"
+                                                    aria-label="Close">Cancel</button>
+                                                <button class="btn btn-primary srchBtn" data-bs-dismiss="modal"
+                                                    aria-label="Close" (click)="editMstDB ()"
+                                                    [disabled]="!editMstFormGroup.valid">Update</button>
+
+                                            </form>
+                                        </div>
+                                    </div>
+                                    <!-- <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Add</button>
+              </div> -->
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="modal fade" id="DeleteMstPop" tabindex="-1" aria-labelledby="exampleModalLabel"
+                            aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Delete</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="row">
+                                            <form (ngSubmit)="getvaule(product)" #product="ngForm" *ngIf=true
+                                                class="form-control">
+                                                <label class="mstId delLable"> Are you sure , you want to delete
+                                                    {{selectedMstCode}} ? </label>
+
+                                                <!-- <button class="btn btn-primary" [disabled]="!product.valid">Add</button> -->
+                                                <button type="button" class="CancelBtn" data-bs-dismiss="modal"
+                                                    aria-label="Close">Cancel</button>
+                                                <button type="button" data-bs-dismiss="modal" aria-label="Close"
+                                                    class="btn btn-primary srchBtn"
+                                                    (click)="deleteMstDb()">Delete</button>
+
+                                            </form>
+                                        </div>
+                                    </div>
+                                    <!-- <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary">Add</button>
+                </div> -->
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="modal fade" id="DeleteListPop" tabindex="-1" aria-labelledby="exampleModalLabel"
+                            aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Delete</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="row">
+                                            <form (ngSubmit)="getvaule(product)" #product="ngForm" *ngIf=true
+                                                class="form-control">
+                                                <label class="mstId delLable"> Are you sure , you want to delete?
+                                                </label>
+
+                                                <!-- <button class="btn btn-primary" [disabled]="!product.valid">Add</button> -->
+                                                <button type="button" class="CancelBtn" data-bs-dismiss="modal"
+                                                    aria-label="Close">Cancel</button>
+                                                <button type="button" data-bs-dismiss="modal" aria-label="Close"
+                                                    class="btn btn-primary srchBtn"
+                                                    (click)="deleteListDetailDB()">Delete</button>
+
+                                            </form>
+                                        </div>
+                                    </div>
+                                    <!-- <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary">Add</button>
+                </div> -->
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

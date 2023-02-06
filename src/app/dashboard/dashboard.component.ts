@@ -18,7 +18,7 @@ export class DashboardComponent implements OnInit {
   constructor(private dfs:DataFileService) { }
 
   ngOnInit(): void {
-    debugger
+  
     this.pendingInterviewCount();
     this.ConpletedInterviewCount();
 

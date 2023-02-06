@@ -34,7 +34,7 @@ export class ScoreComponent implements OnInit {
   // }
   FilterDate:any;
   ngOnInit(): void {   
-    debugger
+    
     this.scoredata=this.dfs.arr;
     console.log(this.scoredata)
     this.canId=this.scoredata.canid;
@@ -89,7 +89,7 @@ export class ScoreComponent implements OnInit {
     canId,Date
     },{headers:this.headers}).subscribe(
       response=>{   
-       debugger
+
      this.array=response.data.skillData;
      console.log(this.array)
      this.getval();

@@ -34,7 +34,7 @@ constructor(private httpClient:HttpClient,private dfs:DataFileService) { }
 // emailId:any = this.dfs.Search_email;
 emailId:any="vishwas261999@gmail.com";
 ngOnInit(): void {
- debugger;
+
  this.getinfo(this.emailId)
  this.emailId=this.dfs.candidateEmail;
  console.log(this.emailId);

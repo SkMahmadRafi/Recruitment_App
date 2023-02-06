@@ -73,7 +73,7 @@
               <button class="new_candidate_btn" routerLink="/interview-info">InterviewInfo</button>
             </div>
             <div id="div3">
-              <button class="new_candidate_btn" routerLink="/profile">New Candidate</button>
+              <button class="new_candidate_btn" (click)="newCandidate()" routerLink="/profile">New Candidate</button>
             </div>
             <div id="div4">
               <mat-icon>download</mat-icon>
@@ -88,7 +88,7 @@
                     <h2>{{data.canname}}</h2>
                     <p>{{data.emailid}}</p>
                     <p>{{data.canphone}}</p> 
-                    
+                   
                   </div>
                   <div class="col-md-6">
                     <div class="row">
@@ -105,12 +105,13 @@
                     </div>
                    
                     <mat-menu #menu="matMenu">
-                      <label mat-menu-item routerLink="/profile" (click)="sendData(data.EmailId)">Edit</label>
-                     
+                      <label mat-menu-item routerLink="/profile" (click)="sendData2(data.emailid,data.canexperience,data.canname,data.canphone)">Edit</label>
+                      
                     </mat-menu>
                   </div>
                     <div class="row">
-                      <button  routerLink="/profile" (click)="sendData(data.EmailId)" [disabled]="data.Candidatestatus =='closed'" class="ScheduleAssesment_button">{{ data.Candidatestatus =='closed' ? 'Completed' : 'Schedule Assesment' }}</button>
+                      <button  routerLink="/profile" (click)="sendData2(data.emailid,data.canexperience,data.canname,data.canphone)" [disabled]="data.Candidatestatus =='closed'" class="ScheduleAssesment_button">{{ data.Candidatestatus =='closed' ? 'Completed' : 'Schedule Assesment' }}</button>
+                      
                     </div>
         
                   </div>
@@ -148,7 +149,7 @@
                   </div>  
                 </div>
  
-                  <button  routerLink="/profile" (click)="sendData(data.EmailId)" [disabled]="data.Candidatestatus =='closed'" class="col-md-3 Assesmentbutton">{{ data.Candidatestatus =='closed' ? 'Completed' : 'Schedule Assesment' }}</button>
+                  <button  routerLink="/profile" (click)="sendData2(data.emailid,data.canexperience,data.canname,data.canphone)" [disabled]="data.Candidatestatus =='closed'" class="col-md-3 Assesmentbutton">{{ data.Candidatestatus =='closed' ? 'Completed' : 'Schedule Assesment' }}</button>
                 
               </mat-card>
               
@@ -157,7 +158,38 @@
          </div>
        </mat-sidenav-content>
     </mat-sidenav-container>
-  
+
+
+    <div class="">
+      <h2>Modal Example</h2>
+      <!-- Trigger the modal with a button -->
+      <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>
+    
+      <!-- Modal -->
+      <div class="modal fade" id="myModal" aria-hidden="true" role="dialog">
+      
+        <div class="modal-dialog">
+        
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">Modal Header</h4>
+            </div>
+            <div class="modal-body">
+              <p>Some text in the modal.</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+      
+    </div>
+
+
     
 
 

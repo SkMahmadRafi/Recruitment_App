@@ -54,6 +54,9 @@ import { InteractionType, IPublicClientApplication, PublicClientApplication } fr
 // Import the Azure AD B2C configuration 
 import { msalConfig, protectedResources } from './auth-config';
 import { WebapiComponent } from './webapi/webapi.component';
+import { QuestionAnswerComponent } from './question-answer/question-answer.component';
+import { ListItemComponent } from './list-item/list-item.component';
+import { TestComponent } from './test/test.component';
 
 var CanvasJSChart = CanvasJSAngularChart.CanvasJSChart;
 export function MSALInstanceFactory():IPublicClientApplication{
@@ -79,7 +82,7 @@ export function MSALInstanceFactory():IPublicClientApplication{
     AssesmentScreenComponent,
     EditDataComponent,
     ScoreComponent, 
-    CanvasJSChart, FilterPipe, AssessmentRecordComponent, InterviewInfoComponent, WebapiComponent
+    CanvasJSChart, FilterPipe, AssessmentRecordComponent, InterviewInfoComponent, WebapiComponent, QuestionAnswerComponent, ListItemComponent, TestComponent
   ],
   imports: [
     
